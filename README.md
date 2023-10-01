@@ -48,4 +48,6 @@ Lambda re-deploy
 
 # Referemce
 
+[Amazon Bedrock|Running inference on a model](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run-inference.html)
 [Amazon Bedrock がリリース！ Lambda から画像を 10 枚生成して S3 に置くまでの流れをやってみた](https://dev.classmethod.jp/articles/bedrock-lambda-stable-diffusion/)
+[Actions, resources, and condition keys for Amazon Bedrock](https://docs.aws.amazon.com/ja_jp/service-authorization/latest/reference/list_amazonbedrock.html)
