@@ -1,14 +1,50 @@
-# Welcome to your CDK TypeScript project
+# Bedrock with AWS CDK Sample
 
-This is a blank project for CDK development with TypeScript.
+This is a sample of deploying the code around Bedrock with AWS CDK.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+# Sample Pattern
 
-## Useful commands
+- Execute Bedrock from AWS Lambda
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+# Environment
+
+| Software | version |
+| -------- | ------- |
+| Finch    | 0.7.0   |
+
+| model | type-version |
+| ----- | ------------ |
+| AI21  | j2-ultra-v1  |
+
+See package.json for other settings.
+
+# Getting Started
+
+## Setup GUI
+
+Configure the AWS console to use Bedrock's AI21 j2-ultra-v1 model
+
+## Deploy Resource
+
+```
+Setup to use finch with cdk
+% export CDK_DOCKER=finch
+
+Setting Boto3 Layer
+% finch vm start
+% finch run --entrypoint "" -v "$PWD":/var/task "public.ecr.aws/lambda/python:3.11.2023.09.27.10" /bin/sh -c "mkdir -p /tmp/python && pip3 install boto3 -t /tmp/python && cd /tmp && yum install -y zip && zip -r /var/task/boto3.zip ."
+% mv boto3.zip src/layer/boto3.zip
+
+
+% npm i
+% npm run build
+% npx cdk synth
+% npx cdk deploy
+
+Lambda re-deploy
+% npx cdk deploy --hotswap
+```
+
+# Referemce
+
+[Amazon Bedrock がリリース！ Lambda から画像を 10 枚生成して S3 に置くまでの流れをやってみた](https://dev.classmethod.jp/articles/bedrock-lambda-stable-diffusion/)
