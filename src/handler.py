@@ -19,4 +19,6 @@ def handler(event, context):
     #      If the output is empty, check with the following code
     #      print(json.dumps(response_body))
     response_body = json.loads(response.get('body').read())
-    print(response_body.get('completions')[0].get('data').get('text'))
+    result = response_body.get('completions')[0].get('data').get('text')
+    response = {'result': result}
+    return response
