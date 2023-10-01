@@ -33,6 +33,7 @@ Setup to use finch with cdk
 Setting Boto3 Layer
 % finch vm start
 % finch run --entrypoint "" -v "$PWD":/var/task "public.ecr.aws/lambda/python:3.11.2023.09.27.10" /bin/sh -c "mkdir -p /tmp/python && pip3 install boto3 -t /tmp/python && cd /tmp && yum install -y zip && zip -r /var/task/boto3.zip ."
+% mkdir src/layer
 % mv boto3.zip src/layer/boto3.zip
 
 
