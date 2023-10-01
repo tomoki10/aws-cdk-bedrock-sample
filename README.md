@@ -46,6 +46,15 @@ Lambda re-deploy
 % npx cdk deploy --hotswap
 ```
 
+## Test Invoke
+
+```
+% export LAMBDA_NAME=<lambda_name>
+% aws lambda invoke --function-name $LAMBDA_NAME \
+    --payload $(echo '{"request_message":"What is a cdk?"}' | base64) \
+    output.json --region us-east-1
+```
+
 # Referemce
 
 [Amazon Bedrock|Running inference on a model](https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run-inference.html)
